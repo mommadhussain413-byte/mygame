@@ -1,0 +1,71 @@
+# This project was generated with 0.3.26 using template: https://github.com/beeware/briefcase-template @ v0.3.26
+[tool.briefcase]
+project_name = "mygame"
+bundle = "com.owais.mygame"
+version = "0.0.1"
+url = "https://mygame.owais.com/mygame"
+license.file = "LICENSE"
+author = "Jane Developer"
+author_email = "jane@mygame.owais.com"
+
+[tool.briefcase.app.mygame]
+formal_name = "mygame"
+description = "My first application"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/mygame",
+]
+test_sources = [
+    "tests",
+]
+
+# Common requirements
+requires = [
+    "pygame-ce",
+]
+test_requires = [
+    "pytest",
+]
+
+[tool.briefcase.app.mygame.macOS]
+universal_build = true
+requires = [
+    "toga-cocoa~=0.5.0",
+    "std-nslog~=1.0.3",
+]
+
+[tool.briefcase.app.mygame.linux]
+requires = [
+    "toga-gtk~=0.5.0",
+    "pygobject < 3.52.1",
+]
+
+[tool.briefcase.app.mygame.windows]
+requires = [
+    "toga-winforms~=0.5.0",
+]
+
+# Android specific configuration
+[tool.briefcase.app.mygame.android]
+requires = [
+    "pygame",
+    "requests",
+    "charset-normalizer",
+    "urllib3",
+    "idna",
+    "certifi",
+]
+base_theme = "Theme.MaterialComponents.Light.DarkActionBar"
+
+build_gradle_extra_content = "options { buildConfigField 'String', 'CHAQUOPY_VERSION', '\"15.0.1\"' }"
+
+build_gradle_dependencies = [
+    "com.google.android.material:material:1.13.0",
+]
+
+# Web deployments
+[tool.briefcase.app.mygame.web]
+requires = [
+    "toga-web~=0.5.0",
+]
