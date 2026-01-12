@@ -14,7 +14,7 @@ long_description = """More details about the app should go here."""
 sources = ["src/mygame"]
 
 requires = [
-    "pygame",
+    "pygame-android",
 ]
 
 [tool.briefcase.app.mygame.macOS]
@@ -29,10 +29,11 @@ requires = ["toga-winforms~=0.5.0"]
 
 [tool.briefcase.app.mygame.android]
 requires = [
-    "pygame",
+    "pygame-android",
 ]
 base_theme = "Theme.MaterialComponents.Light.DarkActionBar"
 build_gradle_dependencies = ["com.google.android.material:material:1.13.0"]
 
 [tool.briefcase.app.mygame.web]
 requires = ["toga-web~=0.5.0"]
+
