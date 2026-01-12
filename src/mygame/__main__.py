@@ -1,2 +1,4 @@
 from mygame.app import main
-main().main_loop()
+import asyncio
+if __name__ == "__main__":
+    asyncio.run(main())
