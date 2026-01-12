@@ -39,7 +39,7 @@ def get_image(path, fallback_color, size=(64, 64)):
 player_img = get_image("src/mygame/player.png", (0, 255, 0))
 enemy_imgs = [
     get_image("src/mygame/human1.png", (255, 50, 50)), 
-    get_image("human2.png", (200, 0, 0)) # Agar ye file bhi folder mein hai toh yahan bhi src/mygame/ lagayein
+    get_image("src/mygame/human2.png", (200, 0, 0)) # Agar ye file bhi folder mein hai toh yahan bhi src/mygame/ lagayein
 ]
 
 # Map loading section mein bhi rasta badlein:
@@ -234,4 +234,5 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
