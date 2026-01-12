@@ -17,12 +17,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install briefcase
 
-      - name: Build APK
-        run: |
-          # Briefcase non-interactive mode
-          briefcase create android --no-input
-          briefcase build android --no-input
-          briefcase package android --no-input
+          - name: Build APK
+          run: |
+            briefcase clean android --no-input
+            briefcase create android --no-input
+            briefcase build android --no-input
+            briefcase package android --no-input
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
