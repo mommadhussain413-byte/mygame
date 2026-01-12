@@ -35,16 +35,21 @@ def get_image(path, fallback_color, size=(64, 64)):
         pygame.draw.circle(surf, fallback_color, (size[0] // 2, size[1] // 2), size[0] // 2)
         return surf
 
-# Assets
+# --- ASSET LOADER (Updated Paths) ---
+player_img = get_image("src/mygame/player.png", (0, 255, 0))
+enemy_imgs = [
+    get_image("src/mygame/human1.png", (255, 50, 50)), 
+    get_image("human2.png", (200, 0, 0)) # Agar ye file bhi folder mein hai toh yahan bhi src/mygame/ lagayein
+]
+
+# Map loading section mein bhi rasta badlein:
 try:
-    map_tile = pygame.image.load("map.png").convert()
+    map_tile = pygame.image.load("src/mygame/map.png").convert()
     TILE_W, TILE_H = map_tile.get_size()
 except:
     TILE_W, TILE_H = 1200, 1200
-    map_tile = pygame.Surface((TILE_W, TILE_H)); map_tile.fill((120, 120, 120))
-
-player_img = get_image("player.png", (0, 255, 0))
-enemy_imgs = [get_image("human1.png", (255, 50, 50)), get_image("human2.png", (200, 0, 0))]
+    map_tile = pygame.Surface((TILE_W, TILE_H))
+    map_tile.fill((120, 120, 120))
 
 # --- STATE VARIABLES ---
 player_world_x, player_world_y = 0, 0
@@ -229,3 +234,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
